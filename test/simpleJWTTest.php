@@ -12,7 +12,7 @@ namespace RogerCreasy\SimpleJWT;
 
 class SimpleJWTTEST extends \PHPUnit_Framework_TestCase
 {
-    //
+    //testing
 
     public function testCorrectEncode()
     {
