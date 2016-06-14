@@ -16,15 +16,15 @@ class SimpleJWTTEST extends \PHPUnit_Framework_TestCase
 
     public function testCorrectEncode()
     {
-        $toBeEncoded = array('iss' => 'http://myapi.com',
+        $toBeEncoded = array('iss' => 'http://RogerCreasy.com',
             'sub' => '1234567890',
-            'name' => 'John Doe',
+            'name' => 'Roger Creasy',
             'scope' => 'API',
-            'admin' => true);
+            'admin' => false);
 
         $result = SimpleJWT::encode($toBeEncoded);
 
-        $expectedResult = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJpc3MiOiJodHRwOlwvXC9teWFwaS5jb20iLCJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwic2NvcGUiOiJBUEkiLCJhZG1pbiI6dHJ1ZX0.-xFE5ixJ10g5jEXq2IDxk-Btgy4BviyoyFE4JWN1u2acOSKtTCC_FsgGHhI9R8zCLe3gj2HYJnEsjj0smtY5qQ";
+        $expectedResult = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJpc3MiOiJodHRwOlwvXC9Sb2dlckNyZWFzeS5jb20iLCJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IlJvZ2VyIENyZWFzeSIsInNjb3BlIjoiQVBJIiwiYWRtaW4iOmZhbHNlfQ.Q-No8PSMVTv_zri0fUatnTRgrsc49JuLV0BpyJW3jfr60_stQLV3zboh59AwZRGASgwkhRjWafYYq-epdvH1Bw";
         $this->assertEquals($expectedResult, $result);
     }
 }
