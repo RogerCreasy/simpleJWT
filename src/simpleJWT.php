@@ -1,10 +1,11 @@
 <?php
-namespace SimpleJWT;
 /**
  * User: Roger Creasy
  * Date: 0008 6/8/2016
  * Time: 10:24
  */
+
+namespace RogerCreasy\SimpleJWT;
 
 class SimpleJWT
 {
@@ -20,11 +21,11 @@ class SimpleJWT
 
         //payload hardcoded here for testing
         // In production, this will be dynamically created
-        $payload = array('iss' => 'http://myapi.com',
+        /*$payload = array('iss' => 'http://myapi.com',
                          'sub' => '1234567890',
                          'name' => 'John Doe',
                          'scope' => 'API',
-                         'admin' => true);
+                         'admin' => true);*/
 
         $JWT = array();
         $JWT[] = self::base64urlEncode(json_encode($header));
@@ -33,7 +34,7 @@ class SimpleJWT
         $signature = hash_hmac(self::$hashAlgorithm[$alg], $signature, $key, true);
         $JWT[] = self::base64urlEncode($signature);
         $output = implode('.', $JWT);
-        echo $output;
+        return $output;
     }
 
     public static function decode($jwt, $key)
