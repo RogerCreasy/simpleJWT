@@ -27,4 +27,23 @@ class SimpleJWTTEST extends \PHPUnit_Framework_TestCase
         $expectedResult = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJpc3MiOiJodHRwOlwvXC9Sb2dlckNyZWFzeS5jb20iLCJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IlJvZ2VyIENyZWFzeSIsInNjb3BlIjoiQVBJIiwiYWRtaW4iOmZhbHNlfQ.Q-No8PSMVTv_zri0fUatnTRgrsc49JuLV0BpyJW3jfr60_stQLV3zboh59AwZRGASgwkhRjWafYYq-epdvH1Bw";
         $this->assertEquals($expectedResult, $result);
     }
+
+    public function testCorrectDecode()
+    {
+        $toBeDecoded = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJpc3MiOiJodHRwOlwvXC9Sb2dlckNyZWFzeS5jb20iLCJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IlJvZ2VyIENyZWFzeSIsInNjb3BlIjoiQVBJIiwiYWRtaW4iOmZhbHNlfQ.Q-No8PSMVTv_zri0fUatnTRgrsc49JuLV0BpyJW3jfr60_stQLV3zboh59AwZRGASgwkhRjWafYYq-epdvH1Bw";
+        $key = 'this is the secret phrase';
+
+        $result = SimpleJWT::decode($toBeDecoded, $key);
+        $result = json_encode($result, JSON_FORCE_OBJECT);
+
+        $expectedResult = array('iss' => 'http://RogerCreasy.com',
+            'sub' => '1234567890',
+            'name' => 'Roger Creasy',
+            'scope' => 'API',
+            'admin' => false);
+
+        $expectedResult = json_encode($expectedResult, JSON_FORCE_OBJECT);
+        $this->assertEquals($expectedResult, $result);
+    }
+
 }
