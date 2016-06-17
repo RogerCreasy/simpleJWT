@@ -48,8 +48,7 @@ class SimpleJWT
 
         //verify that the signature hash matches
         if (!self::verifySignature("$encodedHeader.$encodedPayload", $signature, $key, self::$hashAlgorithm[$header->alg])) {
-            echo 'Signature verification failed';
-            die;
+            return 'Signature verification failed';
         }
 
         return $payload;
