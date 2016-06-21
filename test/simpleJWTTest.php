@@ -6,12 +6,12 @@
  * Time: 10:44
  */
 
-
 namespace RogerCreasy\SimpleJWT;
-
+require __DIR__ . '/../vendor/autoload.php';
 
 class SimpleJWTTEST extends \PHPUnit_Framework_TestCase
 {
+
     //test that claims are correctly encoded
     public function testCorrectEncode()
     {
