@@ -7,7 +7,6 @@
  */
 
 namespace RogerCreasy\SimpleJWT;
-require __DIR__ . '/../vendor/autoload.php';
 
 class SimpleJWTTEST extends \PHPUnit_Framework_TestCase
 {
