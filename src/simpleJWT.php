@@ -14,18 +14,10 @@ class SimpleJWT
         'HS512' => 'sha512'
     );
 
-    public static function encode($payload = ' ', $key = 'this is the secret phrase', $alg = 'HS512', $keyId = null, $head = null)
+    public static function encode($payload = ' ', $key = 'this is the secret phrase', $alg = 'HS512')
     {
         //encode JWT
         $header = array('typ' => 'JWT', 'alg' => $alg);
-
-        //payload hardcoded here for testing
-        // In production, this will be dynamically created
-        /*$payload = array('iss' => 'http://myapi.com',
-                         'sub' => '1234567890',
-                         'name' => 'John Doe',
-                         'scope' => 'API',
-                         'admin' => true);*/
 
         $JWT = array();
         $JWT[] = self::base64urlEncode(json_encode($header));
