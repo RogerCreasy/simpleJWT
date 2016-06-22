@@ -6,7 +6,7 @@
  * Time: 10:44
  */
 
-namespace RogerCreasy\SimpleJWT;
+namespace RogerCreasy\SimpleJWT\test;
 require __DIR__ . '/../vendor/autoload.php';
 use RogerCreasy\SimpleJWT\SimpleJWT;
 
