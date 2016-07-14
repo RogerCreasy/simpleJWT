@@ -7,7 +7,7 @@
  */
 
 
-require __DIR__ . '/../vendor/autoload.php';
+//require __DIR__ . '/../vendor/autoload.php';
 use RogerCreasy\SimpleJWT\SimpleJWT;
 
 class SimpleJWTTEST extends \PHPUnit_Framework_TestCase
